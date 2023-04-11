@@ -1,0 +1,15 @@
+﻿<Window x:Class="Курсовая_работа._БД.authorization"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Курсовая_работа._БД"
+        mc:Ignorable="d"
+        Title="Авторизация" Height="450" Width="800">
+    <Grid>
+        <TextBox HorizontalAlignment="Center" VerticalAlignment="Center" TextWrapping="Wrap"   Width="200" Height="20"
+                 TextAlignment="Center" />
+        <PasswordBox PasswordChar="*" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0 50 0 0"  Width="200" Height="20"/>
+
+    </Grid>
+</Window>

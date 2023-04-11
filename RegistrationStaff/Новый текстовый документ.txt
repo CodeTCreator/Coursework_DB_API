@@ -1,0 +1,13 @@
+<DataGrid Name="dataGrid" AutoGenerateColumns="False" Margin="0,0,262,53">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="id" Binding="{Binding Path=Title}" Width="*" />
+            <DataGridHyperlinkColumn Header="ФИО" Binding="{Binding Path=Company}" Width="3*" />
+            <DataGridTextColumn Header="Пароль" Binding="{Binding Path=Price}" Width="3*" />
+            </DataGrid.Columns>
+        </DataGrid>
+
+
+
+                        <TextBlock Text="{Binding Path=Id}" Margin="5"/>
+                        <TextBlock Text="{Binding Path=Fio}" Margin="5"/>
+                        <TextBlock Text="{Binding Path=Password}" Margin="5"/>

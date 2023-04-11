@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <RootNamespace>Курсовая_работа._БД</RootNamespace>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="police-officer.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="police-officer.jpg" />
+  </ItemGroup>
+
+</Project>
