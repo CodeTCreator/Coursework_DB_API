@@ -123,7 +123,9 @@ namespace RegistrationStaff
             }
             getDB();
             printDB();
-            
+            clearForm();
+
+
         }
         private void addButton_Click(object sender, RoutedEventArgs e)
         {
@@ -133,6 +135,7 @@ namespace RegistrationStaff
             service_Staff.saveStaff(staff);
             getDB();
             printDB();
+            clearForm();
         }
 
         private void BtnYourButton_Click(object sender, RoutedEventArgs e)
