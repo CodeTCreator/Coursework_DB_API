@@ -10,6 +10,7 @@
   <ItemGroup>
     <None Remove="police-officer.jpg" />
     <None Remove="police.jpg" />
+    <None Remove="search.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -29,6 +30,7 @@
   <ItemGroup>
     <Resource Include="police-officer.jpg" />
     <Resource Include="police.jpg" />
+    <Resource Include="search.png" />
   </ItemGroup>
 
 </Project>

@@ -43,28 +43,26 @@ namespace RegistrationStaff
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            this.enterBtn.IsEnabled = false;
-            taskDB.Wait();
-            //printDatabase.PrintDB();
+           
 
-
-            printDatabase.Show();
-            this.Close();
-            //if (this.Login.Text == "admin" && this.password.Password.ToString() == "admin")
-            //{
-            //    PrintDatabase printDatabase = new PrintDatabase();
-            //    printDatabase.Show();
-            //    this.Close();
-            //}
-            //else
-            //{
-            //    string messageBoxText = "Неправильный логин или пароль!";
-            //    string caption = "Ошибка!";
-            //    MessageBoxButton button = MessageBoxButton.OK;
-            //    MessageBoxImage icon = MessageBoxImage.Error;
-            //    MessageBoxResult messageBox;
-            //    messageBox = MessageBox.Show(messageBoxText, caption, button, icon, MessageBoxResult.Yes);
-            //}
+            if (this.Login.Text == "admin" && this.password.Password.ToString() == "admin")
+            {
+                taskDB.Wait();
+                this.enterBtn.IsEnabled = false;
+                printDatabase.Show();
+                this.Close();
+               
+               
+            }
+            else
+            {
+                string messageBoxText = "Неправильный логин или пароль!";
+                string caption = "Ошибка!";
+                MessageBoxButton button = MessageBoxButton.OK;
+                MessageBoxImage icon = MessageBoxImage.Error;
+                MessageBoxResult messageBox;
+                messageBox = MessageBox.Show(messageBoxText, caption, button, icon, MessageBoxResult.Yes);
+            }
 
         }
     }

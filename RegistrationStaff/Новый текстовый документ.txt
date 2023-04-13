@@ -11,3 +11,20 @@
                         <TextBlock Text="{Binding Path=Id}" Margin="5"/>
                         <TextBlock Text="{Binding Path=Fio}" Margin="5"/>
                         <TextBlock Text="{Binding Path=Password}" Margin="5"/>
+
+
+
+<TextBox x:Name="searchBox" Width="200" KeyDown="searchBox_KeyDown" />
+
+private void searchBox_KeyDown(object sender, KeyEventArgs e)
+{
+    if (e.Key == Key.Enter)
+    {
+        string searchString = searchBox.Text.ToLower();
+        var results = from item in MyItems
+                      where item.Name.ToLower().Contains(searchString) || item.Description.ToLower().Contains(searchString)
+                      select item;
+        myDataGrid.ItemsSource = results;
+    }
+}
+ <Button  Name="BtnYourButton" Content="X" Click="BtnYourButton_Click"  />

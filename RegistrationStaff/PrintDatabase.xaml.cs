@@ -5,9 +5,7 @@ using staffDB;
 using staffDB.Entity;
 using staffDB.Services;
 using System.Windows.Controls;
-using System.Threading;
-using System;
-using System.Collections;
+using System.Linq;
 
 namespace RegistrationStaff
 {
@@ -18,7 +16,7 @@ namespace RegistrationStaff
     {
         Service_Staff service_Staff = new Service_Staff();
         List<Staff>? staffs = null;
-        bool flagGetDB = false;
+        
 
         //Функции для окна
         public PrintDatabase()
@@ -147,6 +145,26 @@ namespace RegistrationStaff
             service_Staff.delete(item);
             getDB();
             printDB();
+        }
+
+        private void SearchButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BoxChanged(object sender, TextChangedEventArgs e)
+        {
+            if (this.searchBox.Text == "")
+            {
+                printDB();
+            }
+            else
+            {
+                var list = (from item in staffs
+                            where item.Fio.Contains(this.searchBox.Text)
+                            select item);
+                this.listView.ItemsSource = list;
+            }
         }
     }
 }

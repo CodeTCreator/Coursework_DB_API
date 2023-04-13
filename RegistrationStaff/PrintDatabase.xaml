@@ -11,19 +11,19 @@
 
 
         <Button Content="Выйти" HorizontalAlignment="Left" Margin="741,10,0,0" VerticalAlignment="Top" Click="exitButton_Click" RenderTransformOrigin="0.243,-0.287"/>
-        <GroupBox Header="Сотрудник" Padding="5" Margin="541,45,21,53">
+        <GroupBox Header="Сотрудник" Padding="5" Margin="541,64,21,33">
             <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="-12,0,-12,0">
-            <StackPanel Orientation="Vertical" >
-                <Label  Name="groupBoxID" Content="ID: " Margin="0 15 0 0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="130"/>
-                <Label Content="ФИО" Margin="0 15 0 10" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="130"/>
-                <TextBox Name="groupBoxFIO" HorizontalContentAlignment="Center" HorizontalAlignment="Center"  TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="130"
+                <StackPanel Orientation="Vertical" >
+                    <Label  Name="groupBoxID" Content="ID: " Margin="0 15 0 0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="130"/>
+                    <Label Content="ФИО" Margin="0 15 0 10" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="130"/>
+                    <TextBox Name="groupBoxFIO" HorizontalContentAlignment="Center" HorizontalAlignment="Center"  TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="130"
                          TextChanged="groupBoxsDataContextChanged"
                          />
-                <Label Content="Пароль"  Margin="0 15 0 10" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="130"/>
+                    <Label Content="Пароль"  Margin="0 15 0 10" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="130"/>
 
-                <TextBox  Name="groupBoxPass" HorizontalContentAlignment="Center" TextWrapping="Wrap" Text="" Width="130" RenderTransformOrigin="0.523,3.55" 
+                    <TextBox  Name="groupBoxPass" HorizontalContentAlignment="Center" TextWrapping="Wrap" Text="" Width="130" RenderTransformOrigin="0.523,3.55" 
                           TextChanged="groupBoxsDataContextChanged"/>
-                <Button  Name="groupBtnClear" Content="Очистить" HorizontalAlignment="Center" Margin="0 30 0 0" Height="26" Width="88" IsEnabled="False" Click="clearButton_Click"/>
+                    <Button  Name="groupBtnClear" Content="Очистить" HorizontalAlignment="Center" Margin="0 30 0 0" Height="26" Width="88" IsEnabled="False" Click="clearButton_Click"/>
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                         <Button Name="groupBtnSave" Content="Сохранить" HorizontalAlignment="Right" Margin="0 10 0 10" Height="26" Width="88" IsEnabled="False" Click="saveButton_Click" />
                         <Button Name="groupBtnAdd" Content="Добавить" HorizontalAlignment="Right" Margin="10 10 0 10" Height="26" Width="88" IsEnabled="False" Click="addButton_Click" />
@@ -32,7 +32,7 @@
             </ScrollViewer>
         </GroupBox>
 
-        <ListView x:Name="listView"  ScrollViewer.HorizontalScrollBarVisibility="Disabled"  Margin="15,0,274,53" SelectionChanged="listView_Selected" HorizontalContentAlignment="Center">
+        <ListView x:Name="listView"  ScrollViewer.HorizontalScrollBarVisibility="Disabled"  Margin="15,42,274,11" SelectionChanged="listView_Selected" HorizontalContentAlignment="Center">
             <ListView.DataContext>
                 <Entity:Staff/>
             </ListView.DataContext>
@@ -55,7 +55,14 @@
                     </GridViewColumn>
                 </GridView>
             </ListView.View>
+            
         </ListView>
+        <TextBox Name="searchBox" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="15,13,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Height="20" Width="120" TextChanged="BoxChanged"/>
+        <Button  HorizontalAlignment="Left" Margin="135,13,0,0" VerticalAlignment="Top" Height="20" Width="20" Click="SearchButton_Click" IsEnabled="False">
+            <StackPanel Orientation="Horizontal">
+                <Image Source="/search.png" Width="20" Height="20"  />
+            </StackPanel>
+        </Button>
 
 
 

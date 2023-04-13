@@ -9,10 +9,26 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="carPlate.jpg" />
+    <None Remove="cars.jpg" />
     <None Remove="police-officer.jpg" />
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.5" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="7.0.5" />
+    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="7.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="staffDB">
+      <HintPath>..\..\LibraryFor_CAR_DB\staffDB\bin\Debug\net6.0\staffDB.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="carPlate.jpg" />
+    <Resource Include="cars.jpg" />
     <Resource Include="police-officer.jpg" />
   </ItemGroup>
 
