@@ -20,17 +20,31 @@ namespace Курсовая_работа._БД
     /// </summary>
     public partial class MainWindow : Window
     {
+        private string? _nameUser;
         public MainWindow()
         {
             InitializeComponent();
+           
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        public string? NameUser
+        {
+            get { return _nameUser; }
+            set { this._nameUser = value; }
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            this.nameUserLabel.Content = _nameUser;
+        }
+
+        private void ExitButton_Click(object sender, RoutedEventArgs e)
         {
             
             authorization auth = new authorization();
             auth.Show();
             this.Close();
         }
+
     }
 }

@@ -5,10 +5,84 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Курсовая_работа._БД"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Background="AliceBlue"
+        Title="MainWindow" Height="600" Width="800" Loaded="Window_Loaded">
     <Grid>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="318,184,0,0" VerticalAlignment="Top" Height="33" Width="108" Click="Button_Click"/>
-        <Image Source="/police-officer.jpg" HorizontalAlignment="Left" Height="100" Margin="216,243,0,0" VerticalAlignment="Top" Width="100"/>
+        <Label Content="NameUser" Name="nameUserLabel" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="10,15,0,0" VerticalAlignment="Top" Width="Auto"/>
+        <Button Content="Выйти"  HorizontalAlignment="Right" Margin="0,15,0,0" VerticalAlignment="Top" Height="25" Width="80" Click="ExitButton_Click"/>
+            <Label Content="Главный экран" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Center"  VerticalAlignment="Top"  Width="500" FontSize="25"/>
+
+            <Grid ShowGridLines="False"  Margin="100,120,70,90">
+
+            <Grid.Resources>
+                <Style TargetType="Border" >
+                    <Setter Property="Padding" Value="0,10,10,0" />
+                </Style>
+            </Grid.Resources>
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <Border Grid.Row="0" Grid.Column="0">
+                <Button Background="White" HorizontalContentAlignment="Stretch">
+                    <StackPanel VerticalAlignment="Center">
+                        <Image Source="/protocol.jpg" Height="130" />
+                        <Label Content="Протокол"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center"   Height="30" FontSize="15" Background="#FFDDDDDD" Width="137" />
+                    </StackPanel>
+                </Button>
+            </Border>
+            <Border Grid.Row="0" Grid.Column="1">
+                <Button Background="White">
+                    <StackPanel >
+                        <Image Source="/driver_license.jpg" Height="130" Stretch="UniformToFill"/>
+                        <Label Content="Вод. удостоверение" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"   Height="30" FontSize="15" Background="#FFDDDDDD"/>
+                    </StackPanel>
+                </Button>
+            </Border>
+            <Border Grid.Row="0" Grid.Column="3">
+                <Button Background="White">
+                    <StackPanel >
+                        <Image Source="/drivers.jpg" Height="130"/>
+                        <Label Content="Владельцы авто" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"   Height="30" FontSize="15" Background="#FFDDDDDD"/>
+                    </StackPanel>
+                </Button>
+            </Border>
+            <Border Grid.Row="1" Grid.Column="0">
+                <Button Background="White">
+                    <StackPanel >
+                        <Image Source="/SoRV.png" Height="130"/>
+                        <Label Content="СоР ТС" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"   Height="30" FontSize="15" Background="#FFDDDDDD"/>
+                    </StackPanel>
+                </Button>
+            </Border>
+            <Border Grid.Row="1" Grid.Column="1">
+                <Button Background="White">
+                    <StackPanel >
+                        <Image Source="/cars.jpg" Height="130"/>
+                        <Label Content="ТС" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"   Height="30" FontSize="15" Background="#FFDDDDDD"/>
+                    </StackPanel>
+                </Button>
+            </Border>
+            <Border Grid.Row="1" Grid.Column="2">
+                <Button  Background="White">
+                    <StackPanel >
+                        <Image Source="/search.png" Height="130"/>
+                        <Label Content="Розыск" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"   Height="30" FontSize="15" Background="#FFDDDDDD"/>
+                    </StackPanel>
+                </Button>
+            </Border>
+
+
+        </Grid>
+
+
+
 
     </Grid>
 </Window>

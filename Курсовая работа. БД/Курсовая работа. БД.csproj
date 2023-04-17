@@ -11,7 +11,24 @@
   <ItemGroup>
     <None Remove="carPlate.jpg" />
     <None Remove="cars.jpg" />
-    <None Remove="police-officer.jpg" />
+    <None Remove="drivers.jpg" />
+    <None Remove="driver_license.jpg" />
+    <None Remove="photo\carPlate.jpg" />
+    <None Remove="photo\cars.jpg" />
+    <None Remove="photo\cars.png" />
+    <None Remove="photo\drivers.jpg" />
+    <None Remove="photo\driver_license.jpg" />
+    <None Remove="photo\Magnifier.png" />
+    <None Remove="photo\number.png" />
+    <None Remove="photo\police-officer.jpg" />
+    <None Remove="photo\police.jpg" />
+    <None Remove="photo\protocol.jpg" />
+    <None Remove="photo\search.png" />
+    <None Remove="photo\ship1.jpg" />
+    <None Remove="photo\SoRV.png" />
+    <None Remove="protocol.jpg" />
+    <None Remove="search.png" />
+    <None Remove="SoRV.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -27,9 +44,66 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="carPlate.jpg" />
-    <Resource Include="cars.jpg" />
-    <Resource Include="police-officer.jpg" />
+    <Resource Include="carPlate.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="cars.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="drivers.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="driver_license.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="photo\carPlate.jpg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="photo\cars.jpg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="photo\cars.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="photo\drivers.jpg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="photo\driver_license.jpg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="photo\Magnifier.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="photo\number.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="photo\police-officer.jpg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="photo\police.jpg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="photo\protocol.jpg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="photo\search.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="photo\ship1.jpg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="photo\SoRV.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="protocol.jpg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="search.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="SoRV.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
 
 </Project>
