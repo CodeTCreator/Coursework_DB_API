@@ -21,10 +21,13 @@ namespace Курсовая_работа._БД
     public partial class MainWindow : Window
     {
         private string? _nameUser;
+        Task taskVehicleDB;
+        VehicleWindow vehicleWindow;
+
         public MainWindow()
         {
             InitializeComponent();
-           
+
         }
 
         public string? NameUser
@@ -36,15 +39,34 @@ namespace Курсовая_работа._БД
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             this.nameUserLabel.Content = _nameUser;
+            StartAllDB();
+        }
+
+        private void StartAllDB()
+        {
+            vehicleWindow = new VehicleWindow();
+
+            taskVehicleDB = Task.Factory.StartNew(() =>
+            {
+                vehicleWindow.getDB();
+            }
+            );
         }
 
         private void ExitButton_Click(object sender, RoutedEventArgs e)
         {
-            
+
             authorization auth = new authorization();
             auth.Show();
             this.Close();
         }
 
+        private void VehicleBtn_Click(object sender, RoutedEventArgs e)
+        {
+            taskVehicleDB.Wait();
+            this.VehicleBtn.IsEnabled = false;
+            vehicleWindow.Show();
+            this.Close();
+        }
     }
 }

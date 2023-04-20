@@ -13,6 +13,7 @@
     <None Remove="cars.jpg" />
     <None Remove="drivers.jpg" />
     <None Remove="driver_license.jpg" />
+    <None Remove="filter.png" />
     <None Remove="photo\carPlate.jpg" />
     <None Remove="photo\cars.jpg" />
     <None Remove="photo\cars.png" />
@@ -27,6 +28,7 @@
     <None Remove="photo\ship1.jpg" />
     <None Remove="photo\SoRV.png" />
     <None Remove="protocol.jpg" />
+    <None Remove="search-transformed.png" />
     <None Remove="search.png" />
     <None Remove="SoRV.png" />
   </ItemGroup>
@@ -38,6 +40,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Reference Include="LibraryFor_CAR_DB">
+      <HintPath>..\..\LibraryFor_CAR_DB\LibraryFor_CAR_DB\bin\Debug\net6.0\LibraryFor_CAR_DB.dll</HintPath>
+    </Reference>
     <Reference Include="staffDB">
       <HintPath>..\..\LibraryFor_CAR_DB\staffDB\bin\Debug\net6.0\staffDB.dll</HintPath>
     </Reference>
@@ -56,6 +61,7 @@
     <Resource Include="driver_license.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
+    <Resource Include="filter.png" />
     <Resource Include="photo\carPlate.jpg">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
@@ -69,9 +75,6 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
     <Resource Include="photo\driver_license.jpg">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="photo\Magnifier.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
     <Resource Include="photo\number.png">
@@ -98,12 +101,28 @@
     <Resource Include="protocol.jpg">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
+    <Resource Include="search-transformed.png" />
     <Resource Include="search.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
     <Resource Include="SoRV.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Properties\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
 
 </Project>

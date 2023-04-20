@@ -44,7 +44,7 @@
             <ListView.View>
                 <GridView >
                     <GridViewColumn Header="id"  DisplayMemberBinding="{Binding Path=Id}"  Width="60" />
-                    <GridViewColumn Header="ФИО" DisplayMemberBinding="{Binding Path=Fio}" Width="185"/>
+                    <GridViewColumn Header="ФИО" DisplayMemberBinding=  "{Binding Path=Fio}" Width="185"/>
                     <GridViewColumn Header="Пароль" DisplayMemberBinding="{Binding Path=Password}" Width="185"/>
                     <GridViewColumn Header="Удалить" Width="60" >
                         <GridViewColumn.CellTemplate>

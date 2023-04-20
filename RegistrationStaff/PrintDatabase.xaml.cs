@@ -53,8 +53,6 @@ namespace RegistrationStaff
                 this.groupBoxPass.Text = staff.Password;
                 this.groupBtnClear.IsEnabled = true;
             }
-          
-
         }
 
         //Функции для работы с формой

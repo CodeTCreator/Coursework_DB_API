@@ -1,0 +1,102 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:LibraryFor_CAR_DB="clr-namespace:LibraryFor_CAR_DB;assembly=LibraryFor_CAR_DB" xmlns:Entity="clr-namespace:LibraryFor_CAR_DB.Entity;assembly=LibraryFor_CAR_DB" x:Class="Курсовая_работа._БД.VehicleWindow"
+        mc:Ignorable="d" Background="AliceBlue" ResizeMode="NoResize"
+        Title="Vehicle" Height="800" Width="1200" Loaded="Window_Loaded">
+    <Grid>
+
+
+        <Button Content="Назад" HorizontalAlignment="Left" Margin="1079,13,0,0" VerticalAlignment="Top" Width="100" Height="40" Click="BackButton_Click"/>
+        <GroupBox Header="Транспортное средство" Padding="5" Margin="753,59,21,58" Background="White">
+            <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="10,0,-12,0">
+                <StackPanel Orientation="Vertical" >
+                    <Label  x:Name="groupBoxID" Content="ID: " Margin="0 15 0 0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="130"/>
+                    <Label Content="VIN" Margin="0 15 0 10" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="130"/>
+                    <TextBox x:Name="groupBoxVin" HorizontalContentAlignment="Center" HorizontalAlignment="Center"  TextWrapping="Wrap" Text=""  
+                         Width="Auto" MinWidth="180" TextChanged="groupBoxsDataContextChanged"
+                         />
+
+                    <Label Content="Производитель"  Margin="0 15 0 10" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="130"/>
+                    <TextBox  x:Name="groupBoxBrand" HorizontalContentAlignment="Center" HorizontalAlignment="Center"  TextWrapping="Wrap" Text="" 
+                          Width="Auto" MinWidth="180" TextChanged="groupBoxsDataContextChanged"
+                              />
+                    <Label Content="Кузов"  Margin="0 15 0 10" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="130"/>
+                    <TextBox  x:Name="groupBoxBody" HorizontalContentAlignment="Center" TextWrapping="Wrap" Text="" HorizontalAlignment="Center"
+                          Width="Auto" MinWidth="180" TextChanged="groupBoxsDataContextChanged"
+                              />
+                    <Label Content="Объем двигателя"  Margin="0 15 0 10" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="130"/>
+                    <TextBox  x:Name="groupBoxEngine" HorizontalContentAlignment="Center" TextWrapping="Wrap" Text="" HorizontalAlignment="Center"
+                          Width="Auto" MinWidth="180" TextChanged="groupBoxsDataContextChanged"
+                              />
+                    <Label Content="Мощность л.с"  Margin="0 15 0 10" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="130"/>
+                    <TextBox  x:Name="groupBoxPower" HorizontalContentAlignment="Center" TextWrapping="Wrap" Text="" HorizontalAlignment="Center"
+                          Width="Auto" MinWidth="180" TextChanged="groupBoxsDataContextChanged"
+                              />
+                    <Label Content="Цвет"  Margin="0 15 0 10" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="130"/>
+                    <TextBox  x:Name="groupBoxColor" HorizontalContentAlignment="Center" TextWrapping="Wrap" Text="" HorizontalAlignment="Center"
+                          Width="Auto" MinWidth="180" TextChanged="groupBoxsDataContextChanged"
+                              />
+
+                    <Button  x:Name="groupBtnClear" Content="Очистить" HorizontalAlignment="Center" Margin="0 60 0 10" Height="30" Width="90" IsEnabled="False" Click="clearButton_Click" />
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                        <Button x:Name="groupBtnSave" Content="Сохранить" HorizontalAlignment="Right" Margin="0 10 0 10" Height="30" Width="90" IsEnabled="False" Click="saveButton_Click" />
+                        <Button x:Name="groupBtnAdd" Content="Добавить" HorizontalAlignment="Right" Margin="50 10 0 10" Height="30" Width="90" IsEnabled="False" Click="AddBtn_Click" />
+                    </StackPanel>
+                </StackPanel>
+            </ScrollViewer>
+        </GroupBox>
+
+        <ListView x:Name="listView"  ScrollViewer.HorizontalScrollBarVisibility="Disabled"  Margin="15,43,466,32"  HorizontalContentAlignment="Center"
+                  SelectionChanged="listView_SelectionChanged">
+            <ListView.ItemContainerStyle>
+                <Style TargetType="{x:Type ListViewItem}">
+                    <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                </Style>
+            </ListView.ItemContainerStyle>
+            <ListView.View>
+                <GridView >
+                    <GridViewColumn Header="id"  DisplayMemberBinding="{Binding Id}"  Width="50" />
+                    <GridViewColumn Header="VIN" DisplayMemberBinding="{Binding Vin}" Width="160"/>
+                    <GridViewColumn Header="Производитель" DisplayMemberBinding="{Binding BrandModel}" Width="90"/>
+                    <GridViewColumn Header="Кузов" DisplayMemberBinding="{Binding Body}" Width="80"/>
+                    <GridViewColumn Header="Объем двигателя" DisplayMemberBinding="{Binding EngineCapacity}" Width="90"/>
+                    <GridViewColumn Header="Мощность" DisplayMemberBinding="{Binding CarPower}" Width="80"/>
+                    <GridViewColumn Header="Цвет" DisplayMemberBinding="{Binding Color}" Width="80" />
+                    <GridViewColumn Header="Удалить" Width="80" >
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button  x:Name="BtnYourButton" Content="X" Click="DeleteBtn_Click"  />
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                </GridView>
+            </ListView.View>
+
+
+            <ListView.DataContext>
+                <Entity:Vehicle/>
+            </ListView.DataContext>
+
+
+        </ListView>
+
+            <DockPanel LastChildFill="False" Margin="15,0,466,718">
+            <TextBox x:Name="searchBoxID" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="0,13,5,0" TextWrapping="Wrap"  VerticalAlignment="Top" Height="20" Width="50" TextChanged="SearchBoxChanged"/>
+            <TextBox x:Name="searchBoxVIN" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="5,13,5,0" TextWrapping="Wrap"  VerticalAlignment="Top" Height="20" Width="150" TextChanged="SearchBoxChanged"/>
+            <TextBox x:Name="searchBoxBrand" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="5,13,5,0" TextWrapping="Wrap"  VerticalAlignment="Top" Height="20" Width="80" TextChanged="SearchBoxChanged"/>
+            <TextBox x:Name="searchBoxBody" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="5,13,5,0" TextWrapping="Wrap"  VerticalAlignment="Top" Height="20" Width="70" TextChanged="SearchBoxChanged"/>
+            <TextBox x:Name="searchBoxEngineCapacity" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="5,13,5,0" TextWrapping="Wrap"  VerticalAlignment="Top" Height="20" Width="80" TextChanged="SearchBoxChanged"/>
+            <TextBox x:Name="searchBoxPower" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="5,13,5,0" TextWrapping="Wrap"  VerticalAlignment="Top" Height="20" Width="70" TextChanged="SearchBoxChanged"/>
+            <TextBox x:Name="searchBoxColor" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="5,13,5,0" TextWrapping="Wrap"  VerticalAlignment="Top" Height="20" Width="70" TextChanged="SearchBoxChanged"/>
+
+            <Button Name="SearchBtn" Background="#FF46A13E" HorizontalAlignment="Left" Margin="5,13,0,0" VerticalAlignment="Top" Height="20" Width="60"  IsEnabled="False" Click="SearchBtn_click">
+                <StackPanel Orientation="Horizontal">
+                    <Image Width="20" Height="18" Source="/filter.png"  />
+                </StackPanel>
+            </Button>
+            </DockPanel>
+    </Grid>
+</Window>

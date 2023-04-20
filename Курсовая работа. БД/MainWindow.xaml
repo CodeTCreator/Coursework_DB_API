@@ -62,7 +62,7 @@
                 </Button>
             </Border>
             <Border Grid.Row="1" Grid.Column="1">
-                <Button Background="White">
+                <Button Name="VehicleBtn"  Background="White" Click="VehicleBtn_Click">
                     <StackPanel >
                         <Image Source="/cars.jpg" Height="130"/>
                         <Label Content="ТС" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"   Height="30" FontSize="15" Background="#FFDDDDDD"/>
