@@ -63,7 +63,7 @@ namespace Курсовая_работа._БД
             }
             getDB();
             printDB();
-
+            clearForm();
         }
         private void AddBtn_Click(object sender, RoutedEventArgs e)
         {
@@ -78,12 +78,20 @@ namespace Курсовая_работа._БД
             service_Vehicle.saveVehicle(vehicle);
             getDB();
             printDB();
+            clearForm();
         }
 
         private void clearButton_Click(object sender, RoutedEventArgs e)
         {
             clearForm();
             this.groupBtnClear.IsEnabled = false;
+            this.groupBtnAdd.IsEnabled = false;
+            this.groupBtnSave.IsEnabled = false;
+        }
+
+        private void disenabledChangeButton()
+        {
+            this.groupBtnClear.IsEnabled = true;
             this.groupBtnAdd.IsEnabled = false;
             this.groupBtnSave.IsEnabled = false;
         }
@@ -101,7 +109,6 @@ namespace Курсовая_работа._БД
         private void listView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             clearForm();
-            //Console.WriteLine(this.listView.SelectedItem);
             Vehicle vehicle = (Vehicle)this.listView.SelectedItem;
             if (vehicle != null)
             {
@@ -109,7 +116,7 @@ namespace Курсовая_работа._БД
                 this.groupBoxBody.Text = vehicle.Body;
                 this.groupBoxBrand.Text = vehicle.BrandModel;
                 this.groupBoxColor.Text = vehicle.Color;
-                this.groupBoxEngine.Text = vehicle.EngineCapacity.ToString();
+                this.groupBoxEngine.Text = vehicle.EngineCapacity.ToString().Replace(',', '.');
                 this.groupBoxPower.Text = vehicle.CarPower.ToString();
                 this.groupBoxVin.Text = vehicle.Vin;
                 this.groupBtnClear.IsEnabled = true;
@@ -141,28 +148,42 @@ namespace Курсовая_работа._БД
                     == engineCapacity & item.Vin == Vin & item.Body == Body & item.BrandModel == Brand &
                     item.Color == Color)
                 {
-                    return false;
+                    return true;
                 }
             }
-            return true;
+            return false;
         }
         private void groupBoxsDataContextChanged(object sender, TextChangedEventArgs e)
         {
-            if (this.groupBoxBody.Text != "" & this.groupBoxBrand.Text != "" & checkSameinDB()
+            if (this.groupBoxBody.Text != "" & this.groupBoxBrand.Text != "" & !checkSameinDB()
                 & this.groupBoxColor.Text != "" & this.groupBoxEngine.Text != "" & this.groupBoxPower.Text != "" &
                 this.groupBoxVin.Text != "")
             {
                 if(Regex.IsMatch(this.groupBoxEngine.Text, @"^\d*\,?\d+$|^\d*\.?\d+$", RegexOptions.IgnoreCase)&
                     Regex.IsMatch(this.groupBoxPower.Text, @"^\d*\,?\d+$|^\d*\.?\d+$", RegexOptions.IgnoreCase))
                 {
-                    this.groupBtnAdd.IsEnabled = true;
-                    this.groupBtnSave.IsEnabled = true;
+                    string? id = this.groupBoxID.Content.ToString();
+                    id = id?.Substring(4);
+                    if (id != "")
+                    {
+                        this.groupBtnSave.IsEnabled = true;
+                    }
+                    else
+                    {
+                        this.groupBtnAdd.IsEnabled = true;
+                    }
                 }
                 else
                 {
                     this.groupBtnAdd.IsEnabled = false;
                     this.groupBtnSave.IsEnabled = false;
                 }
+                this.groupBtnClear.IsEnabled = true;
+            }
+            else
+            {
+                this.groupBtnAdd.IsEnabled = false;
+                this.groupBtnSave.IsEnabled = false;
             }
 
         }
@@ -238,6 +259,5 @@ namespace Курсовая_работа._БД
                         select item);
             this.listView.ItemsSource = list;
         }
-
     }
 }

@@ -46,10 +46,10 @@
                 </Button>
             </Border>
             <Border Grid.Row="0" Grid.Column="3">
-                <Button Background="White">
+                <Button Name="OwnersBtn" Background="White" Click="CarOwnersBtn_Click">
                     <StackPanel >
                         <Image Source="/drivers.jpg" Height="130"/>
-                        <Label Content="Владельцы авто" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"   Height="30" FontSize="15" Background="#FFDDDDDD"/>
+                        <Label Content="Владельцы авто" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"   Height="30" FontSize="15" Background="#FFDDDDDD" />
                     </StackPanel>
                 </Button>
             </Border>

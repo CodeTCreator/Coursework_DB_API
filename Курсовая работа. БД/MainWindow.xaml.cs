@@ -22,7 +22,9 @@ namespace Курсовая_работа._БД
     {
         private string? _nameUser;
         Task taskVehicleDB;
+        Task taskCarOwnersDB;
         VehicleWindow vehicleWindow;
+        CarOwnersWindow carOwnersWindow;
 
         public MainWindow()
         {
@@ -45,10 +47,15 @@ namespace Курсовая_работа._БД
         private void StartAllDB()
         {
             vehicleWindow = new VehicleWindow();
-
+            carOwnersWindow = new CarOwnersWindow();
             taskVehicleDB = Task.Factory.StartNew(() =>
             {
                 vehicleWindow.getDB();
+            }
+            );
+            taskCarOwnersDB = Task.Factory.StartNew(() =>
+            {
+                carOwnersWindow.getDB();
             }
             );
         }
@@ -66,6 +73,14 @@ namespace Курсовая_работа._БД
             taskVehicleDB.Wait();
             this.VehicleBtn.IsEnabled = false;
             vehicleWindow.Show();
+            this.Close();
+        }
+        //CarOwnersWindow
+        private void CarOwnersBtn_Click(object sender, RoutedEventArgs e)
+        {
+            taskCarOwnersDB.Wait();
+            this.OwnersBtn.IsEnabled = false;
+            carOwnersWindow.Show();
             this.Close();
         }
     }

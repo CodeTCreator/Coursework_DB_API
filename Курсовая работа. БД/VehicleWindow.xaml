@@ -7,8 +7,6 @@
         mc:Ignorable="d" Background="AliceBlue" ResizeMode="NoResize"
         Title="Vehicle" Height="800" Width="1200" Loaded="Window_Loaded">
     <Grid>
-
-
         <Button Content="Назад" HorizontalAlignment="Left" Margin="1079,13,0,0" VerticalAlignment="Top" Width="100" Height="40" Click="BackButton_Click"/>
         <GroupBox Header="Транспортное средство" Padding="5" Margin="753,59,21,58" Background="White">
             <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="10,0,-12,0">
@@ -74,13 +72,9 @@
                     </GridViewColumn>
                 </GridView>
             </ListView.View>
-
-
             <ListView.DataContext>
                 <Entity:Vehicle/>
             </ListView.DataContext>
-
-
         </ListView>
 
             <DockPanel LastChildFill="False" Margin="15,0,466,718">
@@ -92,7 +86,7 @@
             <TextBox x:Name="searchBoxPower" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="5,13,5,0" TextWrapping="Wrap"  VerticalAlignment="Top" Height="20" Width="70" TextChanged="SearchBoxChanged"/>
             <TextBox x:Name="searchBoxColor" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="5,13,5,0" TextWrapping="Wrap"  VerticalAlignment="Top" Height="20" Width="70" TextChanged="SearchBoxChanged"/>
 
-            <Button Name="SearchBtn" Background="#FF46A13E" HorizontalAlignment="Left" Margin="5,13,0,0" VerticalAlignment="Top" Height="20" Width="60"  IsEnabled="False" Click="SearchBtn_click">
+            <Button Name="SearchBtn" Background="#FF46A13E" HorizontalAlignment="Left" Margin="5,13,0,0" VerticalAlignment="Top" Height="20" Width="60"  IsEnabled="False">
                 <StackPanel Orientation="Horizontal">
                     <Image Width="20" Height="18" Source="/filter.png"  />
                 </StackPanel>
