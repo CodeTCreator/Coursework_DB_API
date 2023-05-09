@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
-
+using Курсовая_работа._БД.Box;
 
 namespace Курсовая_работа._БД
 {
@@ -15,8 +15,8 @@ namespace Курсовая_работа._БД
     /// </summary>
     public partial class CarOwnersWindow : Window
     {
-        Service_Driver service_Driver = new Service_Driver();
-        List<LibraryFor_CAR_DB.Entity.Driver>? drivers = null;
+        BoxDrivers boxDrivers = new BoxDrivers();
+
 
         public CarOwnersWindow()
         {
@@ -29,7 +29,7 @@ namespace Курсовая_работа._БД
         }
         public void getDB()
         {
-            drivers = service_Driver.getAllDriver();
+            boxDrivers.updateDrivers();
         }
         private void AddBtn_Click(object sender, RoutedEventArgs e)
         {
@@ -38,8 +38,8 @@ namespace Курсовая_работа._БД
         }
         public void printDB()
         {
-            this.listView.DataContext = drivers;
-            this.listView.ItemsSource = drivers;
+            this.listView.DataContext = boxDrivers.GetDrivers();
+            this.listView.ItemsSource = boxDrivers.GetDrivers();
         }
 
         private void clearButton_Click(object sender, RoutedEventArgs e)
@@ -65,7 +65,7 @@ namespace Курсовая_работа._БД
             id = id?.Substring(4);
             if (id != "")
             {
-                service_Driver.edit(driver, int.Parse(id));
+                boxDrivers.edit(driver, int.Parse(id));
             }
             getDB();
             printDB();
@@ -78,7 +78,7 @@ namespace Курсовая_работа._БД
             Driver driver = new Driver();
             driver.Fio = this.groupBoxFIO.Text;
             driver.Address = this.groupBoxAddress.Text;
-            service_Driver.saveDriver(driver);
+            boxDrivers.saveDriver(driver);
             getDB();
             printDB();
             clearForm();
@@ -96,7 +96,7 @@ namespace Курсовая_работа._БД
                 return;
 
             var item = button.DataContext as Driver;
-            service_Driver.delete(item);
+            boxDrivers.delete(item);
             getDB();
             printDB();
         }
@@ -137,6 +137,14 @@ namespace Курсовая_работа._БД
             }
             else
             {
+                if (this.groupBoxFIO.Text != "" || this.groupBoxAddress.Text != "")
+                {
+                    this.groupBtnClear.IsEnabled = true;
+                }
+                else
+                {
+                    this.groupBtnClear.IsEnabled = false;
+                }
                 this.groupBtnAdd.IsEnabled = false;
                 this.groupBtnSave.IsEnabled = false;
             }
@@ -144,21 +152,10 @@ namespace Курсовая_работа._БД
 
         private bool checkSameinDB()
         {
-            string FIO = this.groupBoxFIO.Text;
-            string Address = this.groupBoxAddress.Text;
-            foreach (var item in drivers)
-            {
-                if (item.Fio.ToString() == FIO & item.Address.ToString()
-                    == Address)
-                {
-                    return true;
-                }
-            }
-            return false;
+           string FIO = this.groupBoxFIO.Text;
+           string Address = this.groupBoxAddress.Text;
+           return boxDrivers.checkSameinDB(FIO, Address);
         }
-
-
-
         private void SearchBoxChanged(object sender, TextChangedEventArgs e)
         {
             if (this.searchBoxFIO.Text == "" & this.searchBoxAddress.Text == "" & this.searchBoxID.Text == "")
@@ -172,13 +169,10 @@ namespace Курсовая_работа._БД
         }
         private void FilterList()
         {
-            var list = (from item in drivers
-                        where
-                        item.Id.ToString().Contains(this.searchBoxID.Text) &&
-                        item.Fio.Contains(this.searchBoxFIO.Text) &&
-                        item.Address.Contains(this.searchBoxAddress.Text)               
-                        select item);
-            this.listView.ItemsSource = list;
+            string ID = this.searchBoxID.Text;
+            string FIO = this.searchBoxFIO.Text;
+            string Address = this.searchBoxAddress.Text;
+            this.listView.ItemsSource = boxDrivers.filterDrivers(ID,FIO,Address);
         }
     }
 }

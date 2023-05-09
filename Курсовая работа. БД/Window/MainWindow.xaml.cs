@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,13 +24,15 @@ namespace Курсовая_работа._БД
         private string? _nameUser;
         Task taskVehicleDB;
         Task taskCarOwnersDB;
+        Task taskDriversLicenseDB;
         VehicleWindow vehicleWindow;
         CarOwnersWindow carOwnersWindow;
+        DriverLicenseWindow driverLicenseWindow;
 
         public MainWindow()
         {
             InitializeComponent();
-
+            
         }
 
         public string? NameUser
@@ -37,7 +40,6 @@ namespace Курсовая_работа._БД
             get { return _nameUser; }
             set { this._nameUser = value; }
         }
-
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             this.nameUserLabel.Content = _nameUser;
@@ -48,6 +50,7 @@ namespace Курсовая_работа._БД
         {
             vehicleWindow = new VehicleWindow();
             carOwnersWindow = new CarOwnersWindow();
+            driverLicenseWindow = new DriverLicenseWindow();
             taskVehicleDB = Task.Factory.StartNew(() =>
             {
                 vehicleWindow.getDB();
@@ -58,6 +61,11 @@ namespace Курсовая_работа._БД
                 carOwnersWindow.getDB();
             }
             );
+            taskDriversLicenseDB = Task.Factory.StartNew(() =>
+            {
+                driverLicenseWindow.getDB();
+            }
+           );
         }
 
         private void ExitButton_Click(object sender, RoutedEventArgs e)
@@ -82,6 +90,18 @@ namespace Курсовая_работа._БД
             this.OwnersBtn.IsEnabled = false;
             carOwnersWindow.Show();
             this.Close();
+        }
+
+        private void DriversLicenseBtn_Click(object sender, RoutedEventArgs e)
+        {
+            taskDriversLicenseDB.Wait();
+            this.DriversLicenseBtn.IsEnabled = false;
+            driverLicenseWindow.Show();
+            this.Close();
+        }
+        private void SearchBtn_Click(object sender, RoutedEventArgs e)
+        {
+            
         }
     }
 }

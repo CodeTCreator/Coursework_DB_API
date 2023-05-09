@@ -38,7 +38,7 @@
                 </Button>
             </Border>
             <Border Grid.Row="0" Grid.Column="1">
-                <Button Background="White">
+                <Button Name ="DriversLicenseBtn" Background="White" Click="DriversLicenseBtn_Click">
                     <StackPanel >
                         <Image Source="/driver_license.jpg" Height="130" Stretch="UniformToFill"/>
                         <Label Content="Вод. удостоверение" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"   Height="30" FontSize="15" Background="#FFDDDDDD"/>
@@ -70,7 +70,7 @@
                 </Button>
             </Border>
             <Border Grid.Row="1" Grid.Column="2">
-                <Button  Background="White">
+                <Button  Background="White" Name="SearchBtn" Click="SearchBtn_Click">
                     <StackPanel >
                         <Image Source="/search.png" Height="130"/>
                         <Label Content="Розыск" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"   Height="30" FontSize="15" Background="#FFDDDDDD"/>
