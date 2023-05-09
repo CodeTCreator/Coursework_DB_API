@@ -8,13 +8,13 @@ using System.Threading.Tasks;
 
 namespace Курсовая_работа._БД.Box
 {
-    class BoxViehiclex
+    class BoxViehicles
     {
         Service_Vehicle _service_Vehicle = new Service_Vehicle();
         List<Vehicle> _vehicles = new List<Vehicle>();
 
 
-        public BoxViehiclex() { UpdateVehicles(); }
+        public BoxViehicles() { UpdateVehicles(); }
 
         public void UpdateVehicles()
         {

@@ -10,7 +10,7 @@ using LibraryFor_CAR_DB.Entity;
 using LibraryFor_CAR_DB.Services;
 using Курсовая_работа._БД.Box;  
 
-namespace Курсовая_работа._БД
+namespace Курсовая_работа._БД.Windows
 {
     /// <summary>
     /// Логика взаимодействия для Vehicle.xaml
@@ -18,7 +18,7 @@ namespace Курсовая_работа._БД
     public partial class VehicleWindow : Window
     {
 
-        BoxViehiclex boxViehicle = new BoxViehiclex();
+        BoxViehicles boxViehicle = new BoxViehicles();
         public VehicleWindow()
         {
             InitializeComponent();

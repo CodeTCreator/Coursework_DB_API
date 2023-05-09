@@ -11,7 +11,7 @@ using System.Windows.Data;
 using Курсовая_работа._БД.Box;
 using Курсовая_работа._БД.ViewDialogWindow;
 
-namespace Курсовая_работа._БД
+namespace Курсовая_работа._БД.Windows
 {
     /// <summary>
     /// Логика взаимодействия для ChoosingDBWindow.xaml
@@ -25,7 +25,7 @@ namespace Курсовая_работа._БД
         int _mode = -1;
 
 
-        BoxViehiclex _boxViehicle;
+        BoxViehicles _boxViehicle;
         BoxDrivers _boxDrivers;
         BoxLicenses _boxLicenses;
         BoxDepartments _boxDepartment;

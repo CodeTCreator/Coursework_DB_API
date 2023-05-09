@@ -14,7 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Курсовая_работа._БД
+namespace Курсовая_работа._БД.Windows
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -32,7 +32,6 @@ namespace Курсовая_работа._БД
         public MainWindow()
         {
             InitializeComponent();
-            
         }
 
         public string? NameUser
@@ -43,30 +42,35 @@ namespace Курсовая_работа._БД
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             this.nameUserLabel.Content = _nameUser;
-            StartAllDB();
+            //StartAllDB();
+            //WaitAll();
         }
 
-        private void StartAllDB()
-        {
-            vehicleWindow = new VehicleWindow();
-            carOwnersWindow = new CarOwnersWindow();
-            driverLicenseWindow = new DriverLicenseWindow();
-            taskVehicleDB = Task.Factory.StartNew(() =>
-            {
-                vehicleWindow.getDB();
-            }
-            );
-            taskCarOwnersDB = Task.Factory.StartNew(() =>
-            {
-                carOwnersWindow.getDB();
-            }
-            );
-            taskDriversLicenseDB = Task.Factory.StartNew(() =>
-            {
-                driverLicenseWindow.getDB();
-            }
-           );
-        }
+        //public void StartAllDB()
+        //{
+        //    taskVehicleDB = Task.Factory.StartNew(() =>
+        //    {
+        //        vehicleWindow.getDB();
+        //    }
+        //    );
+        //    taskCarOwnersDB = Task.Factory.StartNew(() =>
+        //    {
+        //        carOwnersWindow.getDB();
+        //    }
+        //    );
+        //    taskDriversLicenseDB = Task.Factory.StartNew(() =>
+        //    {
+        //        driverLicenseWindow.getDB();
+        //    }
+        //   );
+        //}
+
+        //public void WaitAll()
+        //{
+        //    taskVehicleDB.Wait();
+        //    taskCarOwnersDB.Wait();
+        //    taskDriversLicenseDB.Wait();
+        //}
 
         private void ExitButton_Click(object sender, RoutedEventArgs e)
         {
@@ -78,7 +82,7 @@ namespace Курсовая_работа._БД
 
         private void VehicleBtn_Click(object sender, RoutedEventArgs e)
         {
-            taskVehicleDB.Wait();
+            vehicleWindow = new VehicleWindow();
             this.VehicleBtn.IsEnabled = false;
             vehicleWindow.Show();
             this.Close();
@@ -86,7 +90,7 @@ namespace Курсовая_работа._БД
         //CarOwnersWindow
         private void CarOwnersBtn_Click(object sender, RoutedEventArgs e)
         {
-            taskCarOwnersDB.Wait();
+            carOwnersWindow = new CarOwnersWindow();
             this.OwnersBtn.IsEnabled = false;
             carOwnersWindow.Show();
             this.Close();
@@ -94,14 +98,16 @@ namespace Курсовая_работа._БД
 
         private void DriversLicenseBtn_Click(object sender, RoutedEventArgs e)
         {
-            taskDriversLicenseDB.Wait();
+            driverLicenseWindow = new DriverLicenseWindow();
             this.DriversLicenseBtn.IsEnabled = false;
             driverLicenseWindow.Show();
             this.Close();
         }
         private void SearchBtn_Click(object sender, RoutedEventArgs e)
         {
-            
+            SearchWindow searchWindow = new SearchWindow();
+            searchWindow.Show();
+            this.Close();
         }
     }
 }

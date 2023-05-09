@@ -3,7 +3,8 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:LibraryFor_CAR_DB="clr-namespace:LibraryFor_CAR_DB;assembly=LibraryFor_CAR_DB" xmlns:Entity="clr-namespace:LibraryFor_CAR_DB.Entity;assembly=LibraryFor_CAR_DB" x:Class="Курсовая_работа._БД.VehicleWindow"
+        xmlns:Entity="clr-namespace:LibraryFor_CAR_DB.Entity;assembly=LibraryFor_CAR_DB" 
+        x:Class="Курсовая_работа._БД.Windows.VehicleWindow" WindowStartupLocation="CenterScreen"
         mc:Ignorable="d" Background="AliceBlue" ResizeMode="NoResize"
         Title="Vehicle" Height="800" Width="1200" Loaded="Window_Loaded">
     <Grid>

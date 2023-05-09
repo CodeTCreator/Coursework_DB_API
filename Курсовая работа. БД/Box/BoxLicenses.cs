@@ -13,7 +13,7 @@ namespace Курсовая_работа._БД.Box
         Service_DriversLicense _service_DriversLicense = new Service_DriversLicense();  
         List<DriversLicense> _driversLicenses = new List<DriversLicense>();
 
-        public BoxLicenses() { }
+        public BoxLicenses() { UpdateLicenses(); }
 
         public void UpdateLicenses()
         {

@@ -1,7 +1,7 @@
 ﻿
 using System.Collections.Generic;
 using System.ComponentModel;
-using Курсовая_работа._БД.Box;
+using Курсовая_работа._БД.Windows;
 
 namespace Курсовая_работа._БД.Classes
 {

@@ -8,7 +8,7 @@ using System.Windows;
 using System.Windows.Controls;
 using Курсовая_работа._БД.Box;
 
-namespace Курсовая_работа._БД
+namespace Курсовая_работа._БД.Windows
 {
     /// <summary>
     /// Логика взаимодействия для CarOwnersWindow.xaml

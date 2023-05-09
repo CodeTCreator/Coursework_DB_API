@@ -9,7 +9,7 @@ using System.Windows.Media;
 using Курсовая_работа._БД.Box;
 using Курсовая_работа._БД.Classes;
 
-namespace Курсовая_работа._БД
+namespace Курсовая_работа._БД.Windows
 {
     /// <summary>
     /// Логика взаимодействия для DriverLicense.xaml

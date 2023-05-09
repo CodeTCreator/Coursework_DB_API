@@ -3,7 +3,7 @@ using staffDB.Services;
 using System.ComponentModel.Design;
 using System.Windows;
 
-namespace Курсовая_работа._БД
+namespace Курсовая_работа._БД.Windows
 {
     /// <summary>
     /// Логика взаимодействия для authorization.xaml
