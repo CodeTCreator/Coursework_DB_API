@@ -23,7 +23,7 @@ namespace Курсовая_работа._БД.ViewDialogWindow
             Binding bindinVIN = new Binding("Vin");
             GridViewColumn VINC = new GridViewColumn();
             VINC.Header = "VIN";
-            VINC.Width = 160;
+            VINC.Width = 180;
             _allWidth += VINC.Width;
             VINC.DisplayMemberBinding = bindinVIN;
 

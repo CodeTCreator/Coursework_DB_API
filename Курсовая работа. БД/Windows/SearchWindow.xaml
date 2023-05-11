@@ -13,11 +13,11 @@
                     <Label  x:Name="groupBoxID" Content="ID: " Margin="0 15 0 0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="130"/>
                     <Label Content="Госномер" Margin="0 15 0 10" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="130"/>
                     <TextBox  x:Name="groupBoxCarPlate" HorizontalContentAlignment="Center" HorizontalAlignment="Center"  TextWrapping="Wrap" Text="" 
-                          Width="Auto" MinWidth="200" Height="30" TextChanged="groupBoxsDataContextChanged" VerticalContentAlignment="Center"
+                          Width="Auto" MinWidth="200" Height="25" TextChanged="groupBoxsDataContextChanged" VerticalContentAlignment="Center"
                               />
                     <Label Content="Уровень розыска"   Margin="0 15 0 10" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="130"/>
                     <ComboBox x:Name="groupBoxLevel"  HorizontalAlignment="Center" SelectionChanged="groupBoxsDataContextChanged"
-                         Width="Auto" MinWidth="200" Height="30" VerticalContentAlignment="Center"
+                         Width="Auto" MinWidth="200" Height="25" VerticalContentAlignment="Center"
                          >
                         <ComboBoxItem>
                             <StackPanel>
@@ -37,11 +37,11 @@
                     </ComboBox>
                     <Label Content="Полное название"  Margin="0 15 0 10" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="130"/>
                     <TextBox  x:Name="groupBoxFullName" HorizontalContentAlignment="Center" TextWrapping="Wrap" Text="" HorizontalAlignment="Center"
-                          Width="Auto" MinWidth="200" Height="30" TextChanged="groupBoxsDataContextChanged" VerticalContentAlignment="Center"
+                          Width="Auto" MinWidth="200" Height="25" TextChanged="groupBoxsDataContextChanged" VerticalContentAlignment="Center"
                               />
                     <Label Content="Цвет"  Margin="0 15 0 10" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="130"/>
                     <TextBox  x:Name="groupBoxColor" HorizontalContentAlignment="Center" TextWrapping="Wrap" Text="" HorizontalAlignment="Center"
-                          Width="Auto" MinWidth="200" Height="30" TextChanged="groupBoxsDataContextChanged" VerticalContentAlignment="Center"
+                          Width="Auto" MinWidth="200" Height="25" TextChanged="groupBoxsDataContextChanged" VerticalContentAlignment="Center"
                               />
                     <Label Content="Отличительные черты"  Margin="0 15 0 10" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="150"/>
                     <TextBox  x:Name="groupBoxSigns"  TextWrapping="Wrap" Text="" HorizontalAlignment="Center" VerticalScrollBarVisibility="Auto"

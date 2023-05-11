@@ -54,7 +54,7 @@
                 </Button>
             </Border>
             <Border Grid.Row="1" Grid.Column="0">
-                <Button Background="White">
+                <Button Background="White" Click="VRCBtn_Click">
                     <StackPanel >
                         <Image Source="/SoRV.png" Height="130"/>
                         <Label Content="СоР ТС" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"   Height="30" FontSize="15" Background="#FFDDDDDD"/>

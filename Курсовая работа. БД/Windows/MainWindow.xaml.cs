@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LibraryFor_CAR_DB.Entity;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -23,11 +24,10 @@ namespace Курсовая_работа._БД.Windows
     {
         private string? _nameUser;
         Task taskVehicleDB;
-        Task taskCarOwnersDB;
-        Task taskDriversLicenseDB;
         VehicleWindow vehicleWindow;
         CarOwnersWindow carOwnersWindow;
         DriverLicenseWindow driverLicenseWindow;
+        VRCWindow vrcWindow;
 
         public MainWindow()
         {
@@ -93,6 +93,13 @@ namespace Курсовая_работа._БД.Windows
             carOwnersWindow = new CarOwnersWindow();
             this.OwnersBtn.IsEnabled = false;
             carOwnersWindow.Show();
+            this.Close();
+        }
+
+        private void VRCBtn_Click(object sender, RoutedEventArgs e)
+        {
+            vrcWindow = new VRCWindow();
+            vrcWindow.Show();
             this.Close();
         }
 

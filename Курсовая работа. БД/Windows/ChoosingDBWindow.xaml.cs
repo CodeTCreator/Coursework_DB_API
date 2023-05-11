@@ -76,6 +76,11 @@ namespace Курсовая_работа._БД.Windows
                 _boxDepartment = new BoxDepartments();
                 viewDW = new ViewDepartment();
             }
+            if(nameDB == "Vehicle")
+            {
+                _boxViehicle= new BoxViehicles();
+                viewDW = new ViewVehicle();
+            }
         }
         public List<int> LimitValues
         {
@@ -99,12 +104,17 @@ namespace Курсовая_работа._БД.Windows
             }
             if (NameDB == "PoliceDepartment")
             {
-                
                 viewDW = new ViewDepartment();
                 createViewPoliceDepartment();
             }
+            if (NameDB == "Vehicle")
+            {
+                viewDW = new ViewVehicle();
+                createViewVehicle();
+            }
             this.listViewData.View = viewDW.getGridView();
             this.Width = viewDW.getWidth() + 100;
+            this.labelChoose.Width= this.Width - 80;
             Thickness thicknessBack = new Thickness(this.Width - this.backBtn.Width - 30, this.Height - this.backBtn.Height - 50, 0, 0);
             this.backBtn.Margin = thicknessBack;
             Thickness thicknessChoose = new Thickness(this.Width - this.backBtn.Width - 50 - this.selectionBtn.Width, this.Height - this.selectionBtn.Height - 50, 0, 0);
@@ -121,6 +131,12 @@ namespace Курсовая_работа._БД.Windows
             this.listViewData.DataContext = _boxDrivers.filterLimitsID(limitValues);
             this.listViewData.ItemsSource = _boxDrivers.filterLimitsID(limitValues);
         }
+        private void createViewVehicle()
+        {
+            this.labelSeacrh.Content = "Поиск (VIN):";
+            this.listViewData.DataContext = _boxViehicle.FilterLimitsID(limitValues);
+            this.listViewData.ItemsSource = _boxViehicle.FilterLimitsID(limitValues);
+        }
 
         private void createViewPoliceDepartment()
         {
@@ -135,7 +151,7 @@ namespace Курсовая_работа._БД.Windows
                 Driver driver = (Driver)this.listViewData.SelectedItem;
                 if(driver!= null)
                 {
-                    this.labelChoose.Content = "Id: " + driver.Id + " | ФИО: " + driver.Fio + " | Адрес: " + driver.Address;
+                    this.labelChoose.Text = "Id: " + driver.Id + " | ФИО: " + driver.Fio + " | Адрес: " + driver.Address;
                     this.selectionBtn.IsEnabled = true;
                     selectedID = driver.Id;
                 }
@@ -145,13 +161,24 @@ namespace Курсовая_работа._БД.Windows
                 PoliceDepartment policeDepartment = (PoliceDepartment)this.listViewData.SelectedItem;
                 if (policeDepartment != null)
                 {
-                    this.labelChoose.Content = "Id: " + policeDepartment.Id + " | Местоположение: " + policeDepartment.Location;
+                    this.labelChoose.Text = "Id: " + policeDepartment.Id + " | Местоположение: " + policeDepartment.Location;
                     this.selectionBtn.IsEnabled = true;
                     selectedID = policeDepartment.Id;
                 }
-                
             }
-            
+            if (nameDB == "Vehicle")
+            {
+                Vehicle vehicle = (Vehicle)this.listViewData.SelectedItem;
+                if (vehicle != null)
+                {
+                    this.labelChoose.Text = "Id: " + vehicle.Id + " | VIN: " + vehicle.Vin + " | Модель: " + vehicle.BrandModel
+                        + " | Объем двигателя: " + vehicle.EngineCapacity + "\n" + "| Мощность: " + vehicle.CarPower
+                        + " | Кузов: " + vehicle.Body + " | Цвет: " + vehicle.Color;
+                    this.selectionBtn.IsEnabled = true;
+                    selectedID = vehicle.Id;
+                }
+            }
+
         }
 
         private void backBtn_Click(object sender, RoutedEventArgs e)

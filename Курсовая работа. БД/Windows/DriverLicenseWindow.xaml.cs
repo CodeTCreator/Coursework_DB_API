@@ -183,7 +183,6 @@ namespace Курсовая_работа._БД.Windows
             {
                 this.groupBoxIDdriver.Text = broker1.ResultId.ToString();
             }
-           
         }
 
         private void choosingBtn_IDPlaceIssue_click(object sender, RoutedEventArgs e)

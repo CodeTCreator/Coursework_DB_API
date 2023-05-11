@@ -5,14 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Курсовая_работа._БД"
         mc:Ignorable="d"
-        Background="AliceBlue" 
-        Title="ChoosingDBWindow" Height="680" Width="400">
+        Background="AliceBlue"  ResizeMode="NoResize"
+        Title="ChoosingDBWindow" Height="685" Width="400">
     <Grid Margin="-1,1,1,-1">
 
-        <Border BorderBrush="Black" Background="White" BorderThickness="1" Margin="30,0,30,570" Height="55">
-            <StackPanel Height="70">
+        <Border BorderBrush="Black" Background="White" BorderThickness="1" Margin="30,0,30,570" Height="75">
+            <StackPanel Height="75">
                 <Label Name="label" Content="Выбрано: " HorizontalAlignment="Left"  VerticalAlignment="Top" Height="25"/>
-                <Label Name="labelChoose" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Height="25"/>
+                <TextBlock Name="labelChoose" FontSize="13" HorizontalAlignment="Left" Margin="5,0,0,0" VerticalAlignment="Top" Height="45"/>
             </StackPanel>
         </Border>
         <StackPanel Orientation="Vertical"  Margin="30,74,30,510" Height="70" >

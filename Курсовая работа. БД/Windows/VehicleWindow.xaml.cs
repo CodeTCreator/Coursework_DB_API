@@ -216,22 +216,6 @@ namespace Курсовая_работа._БД.Windows
                 FilterList();
             }
         }
-
-        private void NSearchBoxChanged(object sender, TextChangedEventArgs e)
-        {
-            //if (this.searchBoxID.Text != ""
-            //    || this.searchBoxPower.Text != "" || this.searchBoxEngineCapacity.Text != "")
-            //{
-            //    this.SearchBtn.IsEnabled = true;
-            //}
-            //else
-            //{
-            //    this.SearchBtn.IsEnabled = false;
-            //}
-        }
-
-
-      
         private void SearchBtn_click(object sender, RoutedEventArgs e)
         {
         }
