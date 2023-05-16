@@ -36,6 +36,7 @@ namespace Курсовая_работа._БД.Box
                         context.Add(driversLicense);
                     }
                 }
+                _driversLicenses = context;
                 return context;
             }
             return GetDriversLicense();

@@ -202,6 +202,27 @@ namespace Курсовая_работа._БД.Windows
         private void searchBox_TextChanged(object sender, TextChangedEventArgs e)
         {
 
+
+            if(_boxDrivers != null)
+            {
+                this.listViewData.DataContext = _boxDrivers.FilterFIODrivers(this.searchBox.Text);
+                this.listViewData.ItemsSource = _boxDrivers.FilterFIODrivers(this.searchBox.Text);
+            }
+            if (_boxViehicle != null)
+            {
+                this.listViewData.DataContext = _boxViehicle.filterVINVehicles(this.searchBox.Text);
+                this.listViewData.ItemsSource = _boxViehicle.filterVINVehicles(this.searchBox.Text);
+            }
+            if (_boxLicenses != null)
+            {
+                this.listViewData.DataContext = _boxLicenses.filterIDdriverLicenses(this.searchBox.Text);
+                this.listViewData.ItemsSource = _boxLicenses.filterIDdriverLicenses(this.searchBox.Text);
+            }
+            if (_boxDepartment != null)
+            {
+                this.listViewData.DataContext = _boxDepartment.filterLocations(this.searchBox.Text);
+                this.listViewData.ItemsSource = _boxDepartment.filterLocations(this.searchBox.Text);
+            }
         }
     }
 }

@@ -47,6 +47,7 @@ namespace Курсовая_работа._БД.Box
                         context.Add(vehicle);
                     }
                 }
+                _vehicles= context;
                 return context;
             }
             return GetVehicles();

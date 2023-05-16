@@ -33,6 +33,7 @@ namespace Курсовая_работа._БД.Box
                         context.Add(vrc);
                     }
                 }
+                _vrc = context;
                 return context;
             }
             return GetVRC();

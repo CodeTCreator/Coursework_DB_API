@@ -11,7 +11,7 @@ namespace Курсовая_работа._БД.Box
     class BoxDrivers : Box
     {
         Service_Driver service_Driver = new Service_Driver();
-        List<Driver> drivers = new List<Driver>();
+        List<Driver> _drivers = new List<Driver>();
       
 
         public BoxDrivers() 
@@ -20,28 +20,29 @@ namespace Курсовая_работа._БД.Box
         }
         public void updateDrivers()
         {
-            drivers = service_Driver.getAllDriver();
+            _drivers = service_Driver.getAllDriver();
         }
-        public List<Driver> GetDrivers() { return drivers; }
+        public List<Driver> GetDrivers() { return _drivers; }
         public List<Driver> filterLimitsID(List<int> limits)
         {
             if (limits != null)
             {
                 List<Driver> context = new List<Driver>();
-                foreach (Driver driver in drivers)
+                foreach (Driver driver in _drivers)
                 {
                     if (!limits.Contains(driver.Id))
                     {
                         context.Add(driver);
                     }
                 }
+                _drivers = context;
                 return context;
             }
             return GetDrivers();
         }
         public bool checkSameinDB(string Fio, string Address)
         {
-            foreach (var item in drivers)
+            foreach (var item in _drivers)
             {
                 if (item.Fio == Fio & item.Address== Address)
                 {
@@ -51,22 +52,23 @@ namespace Курсовая_работа._БД.Box
             return false;
         }
 
-        public List<Driver> filterFIODrivers(string Fio)
+        public List<Driver> FilterFIODrivers(string Fio)
         {
-            List<Driver> list = (from item in drivers
+            List<Driver> list = (from item in _drivers
                                  where
                                  item.Fio.Contains(Fio)
                                  select item).ToList();
             return list;
         }
-        public List<Driver> filterDrivers(string ID,string Fio,string Address)
+        public List<Driver> FilterDrivers(string ID,string Fio,string Address)
         {
-            List<Driver> list = (from item in drivers
+            List<Driver> list = (from item in _drivers
                         where
                         item.Id.ToString().Contains(ID) &&
                         item.Fio.Contains(Fio) &&
                         item.Address.Contains(Address)
                         select item).ToList();
+
             return list;
         }
         public void saveDriver(Driver driver)

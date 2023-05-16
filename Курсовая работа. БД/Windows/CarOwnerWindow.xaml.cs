@@ -172,7 +172,7 @@ namespace Курсовая_работа._БД.Windows
             string ID = this.searchBoxID.Text;
             string FIO = this.searchBoxFIO.Text;
             string Address = this.searchBoxAddress.Text;
-            this.listView.ItemsSource = boxDrivers.filterDrivers(ID,FIO,Address);
+            this.listView.ItemsSource = boxDrivers.FilterDrivers(ID,FIO,Address);
         }
     }
 }

@@ -27,7 +27,7 @@ namespace Курсовая_работа._БД.Box
             _service_PoliceDepartment.savePoliceDepartment(policeDepartment);
             UpdateDepartments(); ;
         }
-        public List<PoliceDepartment> filterDrivers(string location)
+        public List<PoliceDepartment> filterLocations(string location)
         {
             List<PoliceDepartment> list = (from item in _departments
                                  where
