@@ -12,7 +12,7 @@ namespace Курсовая_работа._БД.ViewDialogWindow
     class ViewVRC : IViewDialogWindow
     {
         private double _allWidth;
-        public GridView getGridView()
+        public GridView GetGridView()
         {
             Vrc vrc = new Vrc();
             
@@ -44,7 +44,7 @@ namespace Курсовая_работа._БД.ViewDialogWindow
             _allWidth += IdDriverC.Width;
             IdDriverC.DisplayMemberBinding = bindinIdDriver;
 
-            Binding bindinIssued = new Binding("Issued");
+            Binding bindinIssued = new Binding("IdPlace");
             GridViewColumn IssuedC = new GridViewColumn();
             IssuedC.Header = "Место выдачи";
             IssuedC.Width = 90;
@@ -58,7 +58,7 @@ namespace Курсовая_работа._БД.ViewDialogWindow
             _allWidth += IdVehicleC.Width;
             IdVehicleC.DisplayMemberBinding = bindinIdVehicle;
 
-            Binding bindinDateIssued = new Binding("date_issued");
+            Binding bindinDateIssued = new Binding("DateIssued");
             GridViewColumn DateIssuedC = new GridViewColumn();
             DateIssuedC.Header = "Дата выдачи";
             DateIssuedC.Width = 80;
@@ -76,7 +76,7 @@ namespace Курсовая_работа._БД.ViewDialogWindow
             return myGridView;
         }
 
-        public double getWidth()
+        public double GetWidth()
         {
             return _allWidth;
         }

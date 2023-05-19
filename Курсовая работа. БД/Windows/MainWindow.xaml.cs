@@ -6,14 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+
 
 namespace Курсовая_работа._БД.Windows
 {
@@ -114,6 +107,12 @@ namespace Курсовая_работа._БД.Windows
         {
             SearchWindow searchWindow = new SearchWindow();
             searchWindow.Show();
+            this.Close();
+        }
+        private void MinuteBtn_Click(object sender, RoutedEventArgs e)
+        {
+            MinuteWindow minuteWindow = new MinuteWindow();
+            minuteWindow.Show();
             this.Close();
         }
     }

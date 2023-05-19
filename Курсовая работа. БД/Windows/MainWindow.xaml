@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Курсовая_работа._БД"
+
         mc:Ignorable="d"
         Background="AliceBlue"
         Title="MainWindow" Height="600" Width="800" Loaded="Window_Loaded">
@@ -30,7 +30,7 @@
             </Grid.ColumnDefinitions>
 
             <Border Grid.Row="0" Grid.Column="0">
-                <Button Background="White" HorizontalContentAlignment="Stretch">
+                <Button Background="White" HorizontalContentAlignment="Stretch" Click="MinuteBtn_Click">
                     <StackPanel VerticalAlignment="Center">
                         <Image Source="/protocol.jpg" Height="130" />
                         <Label Content="Протокол"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center"   Height="30" FontSize="15" Background="#FFDDDDDD" Width="137" />

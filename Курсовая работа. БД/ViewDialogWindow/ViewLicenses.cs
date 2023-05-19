@@ -1,13 +1,15 @@
 ﻿
+using LibraryFor_CAR_DB.Entity;
 using System.Windows.Controls;
 using System.Windows.Data;
+using Курсовая_работа._БД.Windows;
 
 namespace Курсовая_работа._БД.ViewDialogWindow
 {
     internal class ViewLicenses : IViewDialogWindow
     {
         private double _allWidth;
-        public GridView getGridView()
+        public GridView GetGridView()
         {
             GridViewColumn IdC = new GridViewColumn();
             IdC.Header = "Id";
@@ -42,7 +44,7 @@ namespace Курсовая_работа._БД.ViewDialogWindow
             ValidUntilC.Header = "Действительно до";
             ValidUntilC.Width = 140;
             _allWidth += ValidUntilC.Width;
-            DateOfIssueC.DisplayMemberBinding = bindinValidUntilC;
+            ValidUntilC.DisplayMemberBinding = bindinValidUntilC;
 
             GridView myGridView = new GridView();
             myGridView.Columns.Add(IdC);
@@ -53,7 +55,7 @@ namespace Курсовая_работа._БД.ViewDialogWindow
             return myGridView;
         }
 
-        public double getWidth()
+        public double GetWidth()
         {
             return _allWidth;
         }

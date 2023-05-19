@@ -20,7 +20,7 @@ namespace Курсовая_работа._БД.Box
 
         public List<Inspector> GetInspectors() { return _inspectors; }
 
-        public List<Inspector> filterFIOInspectors(string Fio)
+        public List<Inspector> FilterFIOInspectors(string Fio)
         {
             List<Inspector> list = (from item in _inspectors
                                  where
@@ -35,13 +35,13 @@ namespace Курсовая_работа._БД.Box
             UpdateInspectors();
         }
 
-        public void edit(Inspector inspector,int ID)
+        public void Edit(Inspector inspector,int ID)
         {
             _service_Inspector.edit(inspector,ID);
             UpdateInspectors();
         }
 
-        public void delete(Inspector inspector)
+        public void Delete(Inspector inspector)
         {
             _service_Inspector.delete(inspector); 
             UpdateInspectors();

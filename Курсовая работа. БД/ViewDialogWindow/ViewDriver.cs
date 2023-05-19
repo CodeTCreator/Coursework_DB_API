@@ -10,7 +10,7 @@ namespace Курсовая_работа._БД.ViewDialogWindow
         public ViewDriver()
         {
         }
-        public GridView getGridView()
+        public GridView GetGridView()
         {
             GridViewColumn Id = new GridViewColumn();
             Id.Header = "id";
@@ -42,7 +42,7 @@ namespace Курсовая_работа._БД.ViewDialogWindow
             return myGridView;
         }
 
-        public double getWidth()
+        public double GetWidth()
         {
             return _allWidth;
         }

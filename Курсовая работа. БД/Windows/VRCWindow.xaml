@@ -22,14 +22,14 @@
                           Width="Auto" MinWidth="180" TextChanged="groupBoxsDataContextChanged" Height="25" VerticalContentAlignment="Center"
                               />
                     <Label Content="Id водителя"  Margin="0 15 0 10" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="130"/>
-                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Height="27" Width="285">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Height="27">
                         <TextBox x:Name="groupBoxIDDriver" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" HorizontalAlignment="Center"  TextWrapping="Wrap" Text=""  
                          Width="Auto" MinWidth="180" TextChanged="groupBoxsDataContextChanged" IsEnabled="False"
                          />
                         <Button  x:Name="groupBtnChoosing1" Content="Выбрать" HorizontalAlignment="Center" Margin="10 0 7 0" Height="25" Width="90" Click="choosingBtn_IDdriver_click" />
                     </StackPanel>
                     <Label Content="Место выдачи"  Margin="0 15 0 10" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="130"/>
-                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Height="27" Width="285">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Height="27" >
                         <TextBox  x:Name="groupBoxIDPlace" HorizontalContentAlignment="Center" TextWrapping="Wrap" Text="" HorizontalAlignment="Center"
                           Width="Auto" MinWidth="180" TextChanged="groupBoxsDataContextChanged" IsEnabled="False" Height="25" VerticalContentAlignment="Center"
                               />

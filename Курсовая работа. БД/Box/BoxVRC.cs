@@ -69,6 +69,15 @@ namespace Курсовая_работа._БД.Box
                                         select item).ToList();
             return resultList;
         }
+
+        public List<Vrc> FilterNumber(string location)
+        {
+            List<Vrc> list = (from item in _vrc
+                                           where
+                                           item.NumberVrc.Contains(location)
+                                           select item).ToList();
+            return list;
+        }
         public void SaveVRC(Vrc vrc)
         {
             _service_VRC.saveVrc(vrc);

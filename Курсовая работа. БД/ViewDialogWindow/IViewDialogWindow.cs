@@ -11,9 +11,9 @@ namespace Курсовая_работа._БД.ViewDialogWindow
     interface IViewDialogWindow
     {
 
-        double getWidth();
+        double GetWidth();
 
-        GridView getGridView();
+        GridView GetGridView();
 
     }
 }
