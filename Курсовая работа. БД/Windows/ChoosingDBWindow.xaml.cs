@@ -31,6 +31,7 @@ namespace Курсовая_работа._БД.Windows
         BoxDepartments _boxDepartment;
         BoxInspectors _boxInspectors;
         BoxVRC _boxVrc;
+        BoxCoAo _boxCoAo;
 
         IViewDialogWindow viewDW;
 
@@ -92,6 +93,10 @@ namespace Курсовая_работа._БД.Windows
             {
                 _boxVrc = new BoxVRC();
             }
+            if(nameDB == "CoAo")
+            {
+                _boxCoAo = new BoxCoAo();
+            }
         }
         public List<int> LimitValues
         {
@@ -137,6 +142,11 @@ namespace Курсовая_работа._БД.Windows
             {
                 viewDW = new ViewVRC();
                 createViewVrc();
+            }
+            if(NameDB == "CoAo")
+            {
+                viewDW = new ViewCoAo();
+                createViewCoAo();
             }
             this.listViewData.View = viewDW.GetGridView();
             this.Width = viewDW.GetWidth() + 100;
@@ -187,6 +197,12 @@ namespace Курсовая_работа._БД.Windows
             this.labelSeacrh.Content = "Поиск (Номер свидетельства):";
             this.listViewData.DataContext = _boxVrc.GetVRC();
             this.listViewData.ItemsSource = _boxVrc.GetVRC();
+        }
+        private void createViewCoAo()
+        {
+            this.labelSeacrh.Content = "Поиск (Номер статьи):";
+            this.listViewData.DataContext = _boxCoAo.FilterLimitsID(limitValues);
+            this.listViewData.ItemsSource = _boxCoAo.FilterLimitsID(limitValues);
         }
         private void listViewData_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -253,6 +269,17 @@ namespace Курсовая_работа._БД.Windows
                         + " | id места выдачи: " + vrc.IdPlace + " | Дата выдачи: " + vrc.DateIssued + " |id владельца: " + vrc.IdDriver;
                     this.selectionBtn.IsEnabled = true;
                     selectedID = vrc.Id;
+                }
+            }
+            if (nameDB == "CoAo")
+            {
+                Coao coao = (Coao)this.listViewData.SelectedItem;
+                if (coao != null)
+                {
+                    this.labelChoose.Text = "Id: " + coao.Id + " | Номер статьи: " + coao.Article + " | Пункт: " + coao.Point + "\n"
+                        + " | Часть: " + coao.Part+ " | Описани: " + coao.Description + " |Меры наказания: " + coao.Penalties;
+                    this.selectionBtn.IsEnabled = true;
+                    selectedID = coao.Id;
                 }
             }
 

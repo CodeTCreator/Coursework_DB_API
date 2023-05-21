@@ -4,8 +4,8 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Курсовая_работа._БД"
-        mc:Ignorable="d"
-        Title="CarOwnersWindow" Background="AliceBlue" ResizeMode="NoResize"
+        mc:Ignorable="d" WindowStartupLocation="CenterScreen"
+        Title="CarOwnersWindow" Background="AliceBlue" MaxHeight="600" MaxWidth="900"
         Height="600" Width="900" Loaded="Window_Loaded">
     <Grid>
         <Button Content="Назад" HorizontalAlignment="Left" Margin="790,10,0,0" VerticalAlignment="Top" Width="80" Height="30" Click="BackButton_Click"/>
