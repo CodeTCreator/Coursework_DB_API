@@ -31,7 +31,7 @@ namespace Курсовая_работа._БД.Box
         return list;
     }
 
-    public List<Coao> filterLimitsID(List<int> limits)
+    public List<Coao> FilterLimitsID(List<int> limits)
     {
         if (limits != null)
         {

@@ -4,8 +4,8 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 
-        mc:Ignorable="d" WindowStartupLocation="CenterScreen" ResizeMode="NoResize"  Background="AliceBlue"
-        Title="MinuteWindow" Height="800" Width="1400" Loaded="Window_Loaded">
+        mc:Ignorable="d" WindowStartupLocation="CenterScreen"   Background="AliceBlue"
+        Title="MinuteWindow" Height ="800" MaxHeight="800" Width="1400" MaxWidth="1400" Loaded="Window_Loaded">
     <Grid>
         <Button Content="Назад" HorizontalAlignment="Left" Margin="1275,13,0,0" VerticalAlignment="Top" Width="100" Height="40" Click="BackButton_Click"/>
         <GroupBox Header="Протокол" Padding="5" Margin="900,59,21,32" Background="White">
@@ -53,7 +53,8 @@
                         <TextBox  x:Name="groupBoxArticles" HorizontalContentAlignment="Center" TextWrapping="Wrap" Text="" HorizontalAlignment="Center"
                           Width="Auto" MinWidth="180" TextChanged="groupBoxsDataContextChanged" IsEnabled="False" Height="25" VerticalContentAlignment="Center"
                               />
-                        <Button  x:Name="groupBtnChoosingArticles" Content="Добавить" HorizontalAlignment="Center" Margin="10 0 7 0" Height="25" Width="90" Click="choosingBtn_IDArticles_click" />
+                        <Button  x:Name="groupBtnDeleteChoosingArticles" Content="x" HorizontalAlignment="Center" Margin="10 0 7 0" Height="25" Width="40" Click="choosingBtn_DeleteArticles_click" />
+                        <Button  x:Name="groupBtnChoosingArticles" Content="+" FontSize="15" VerticalContentAlignment="Top"  HorizontalAlignment="Center" Margin="5 0 7 0" Height="25" Width="40" Click="choosingBtn_IDArticles_click" />
                     </StackPanel>
 
 

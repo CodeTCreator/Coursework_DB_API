@@ -23,11 +23,13 @@ namespace Курсовая_работа._БД.Windows
     public partial class MinuteWindow : Window
     {
         BoxMinutes _boxMinutes = new BoxMinutes();
-        Broker broker1;
+        BoxArticles _boxArticles = new BoxArticles();
+        Broker _broker1;
+        List<String> _articles = new List<string>();
         public MinuteWindow()
         {
             InitializeComponent();
-            broker1 = new Broker();
+            _broker1 = new Broker();
         }
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
@@ -36,6 +38,7 @@ namespace Курсовая_работа._БД.Windows
         public void getDB()
         {
             _boxMinutes.UpdateMinutes();
+            _boxArticles.UpdateArticles();
         }
 
         //Обработка кнопок
@@ -104,6 +107,8 @@ namespace Курсовая_работа._БД.Windows
             this.groupBoxIdVrc.Text = "";
             this.groupBoxCrimeScene.Text = "";
             this.groupBoxExplanation.Text = "";
+            _articles.Clear();
+            this.groupBoxArticles.Text = "";
             this.groupBtnClear.IsEnabled = false;
         }
         private void listView_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -121,6 +126,8 @@ namespace Курсовая_работа._БД.Windows
                // this.groupBoxArticles.Text = vrc.IdPlace.ToString();
                 this.groupBoxDateIssued.Text = minute.DateMinutes.ToString();
                 this.groupBtnClear.IsEnabled = true;
+                _articles = _boxArticles.GetArticles(minute.Id);
+                this.groupBoxArticles.Text = String.Join("; ", _articles.ToArray());
             }
         }
         private void DeleteBtn_Click(object sender, RoutedEventArgs e)
@@ -161,45 +168,27 @@ namespace Курсовая_работа._БД.Windows
 
         private void choosingBtn_IDViolator_click(object sender, RoutedEventArgs e)
         {
-            //List<int> limitValues = new List<int>();
-            //List<Vrc> vrc = _boxMinutes.GetVRC();
-            //if (vrc != null)
-            //{
-            //    for (int i = 0; i < vrc.Count; i++)
-            //    {
-            //        limitValues.Add((int)vrc[i].IdDriver);
-            //    }
-            //}
-            int id = broker1.StartWork("DriverLicense", null, 1);
+            int id = _broker1.StartWork("DriverLicense", null, 1);
             if (id != -1)
             {
-                this.groupBoxIdViolator.Text = broker1.ResultId.ToString();
+                this.groupBoxIdViolator.Text = _broker1.ResultId.ToString();
             }
         }
 
         private void choosingBtn_IDInspector_click(object sender, RoutedEventArgs e)
         {
-            //List<int> limitValues = new List<int>();
-            //List<Vrc> vrc = _boxMinutes.GetVRC();
-            //if (vrc != null)
-            //{
-            //    for (int i = 0; i < vrc.Count; i++)
-            //    {
-            //        limitValues.Add((int)vrc[i].IdVehicle);
-            //    }
-            //}
-            int id = broker1.StartWork("Inspector", null, 1);
+            int id = _broker1.StartWork("Inspector", null, 1);
             if (id != -1)
             {
-                this.groupBoxIdInspector.Text = broker1.ResultId.ToString();
+                this.groupBoxIdInspector.Text = _broker1.ResultId.ToString();
             }
         }
         private void choosingBtn_IDVrc_click(object sender, RoutedEventArgs e)
         {
-            int id = broker1.StartWork("Vrc", null, 1);
+            int id = _broker1.StartWork("Vrc", null, 1);
             if (id != -1)
             {
-                this.groupBoxIdVrc.Text = broker1.ResultId.ToString();
+                this.groupBoxIdVrc.Text = _broker1.ResultId.ToString();
             }
         }
         private void groupBoxsDataContextChanged(object sender, SelectionChangedEventArgs e)
@@ -212,25 +201,18 @@ namespace Курсовая_работа._БД.Windows
         }
         private void CheckAndEnable()
         {
-            if (this.groupBoxIdViolator.Text != "" & this.groupBoxIdInspector.Text != "" & !checkSameinDB()
+            if (this.groupBoxIdViolator.Text != "" & this.groupBoxIdInspector.Text != ""
               & this.groupBoxIdVrc.Text != "" & this.groupBoxExplanation.Text != "" & this.groupBoxCrimeScene.Text != "" &
-              this.groupBoxDateIssued.Text != "" & this.groupBoxArticles.Text != "")
+              this.groupBoxDateIssued.Text != "" || this.groupBoxArticles.Text != "")
             {
                 string? id = this.groupBoxID.Content.ToString();
-                id = id?.Substring(4);
-                if (id != "")
-                {
-                    this.groupBtnSave.IsEnabled = true;
-                }
-                else
-                {
-                    this.groupBtnAdd.IsEnabled = true;
-                }
+                this.groupBtnSave.IsEnabled = true;
+                this.groupBtnAdd.IsEnabled = true;
                 this.groupBtnClear.IsEnabled = true;
             }
             else
             {
-                if (this.groupBoxIdViolator.Text != "" || this.groupBoxIdInspector.Text != "" || !checkSameinDB()
+                if (this.groupBoxIdViolator.Text != "" || this.groupBoxIdInspector.Text != "" 
                  || this.groupBoxIdVrc.Text != "" || this.groupBoxExplanation.Text != "" || this.groupBoxCrimeScene.Text != "" ||
                 this.groupBoxDateIssued.Text != "" || this.groupBoxArticles.Text != "")
                 {
@@ -274,7 +256,32 @@ namespace Курсовая_работа._БД.Windows
 
         private void choosingBtn_IDArticles_click(object sender, RoutedEventArgs e)
         {
+           
+            List<int> limitValues = new List<int>();
+            List<String> limitValuesString = new List<String>();
+            int id = -1;
+            if (_articles.Count == 0)
+            {
+                
+                id = _broker1.StartWork("CoAo", null, 1);
+            }
+            else
+            {
+                limitValuesString = _articles;
+                limitValues = limitValuesString.Select(int.Parse).ToList();
+                id = _broker1.StartWork("CoAo", limitValues, 1);
+            }
+            if (id != -1)
+            {
+                _articles.Add(_broker1.ResultId.ToString());
+                this.groupBoxArticles.Text = String.Join("; ", _articles.ToArray()); 
+            }
+        }
 
+        private void choosingBtn_DeleteArticles_click(object sender, RoutedEventArgs e)
+        {
+            _articles.RemoveAt(_articles.Count - 1);
+            this.groupBoxArticles.Text = String.Join("; ", _articles.ToArray());
         }
     }
 }

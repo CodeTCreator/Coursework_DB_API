@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LibraryFor_CAR_DB.Entity;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -40,10 +41,10 @@ namespace Курсовая_работа._БД.ViewDialogWindow
 
             Binding bindinPoint = new Binding("Point");
             GridViewColumn Point = new GridViewColumn();
-            Part.Header = "Пункт";
-            Part.Width = 50;
+            Point.Header = "Пункт";
+            Point.Width = 50;
             _allWidth += Part.Width;
-            Part.DisplayMemberBinding = bindinPoint;
+            Point.DisplayMemberBinding = bindinPoint;
 
             Binding bindinDes = new Binding("Description");
             GridViewColumn Description = new GridViewColumn();
@@ -52,7 +53,9 @@ namespace Курсовая_работа._БД.ViewDialogWindow
             _allWidth += Description.Width;
             Description.DisplayMemberBinding = bindinDes;
 
-            Binding bindinRM = new Binding("RecoveryMeasuares");
+ 
+
+            Binding bindinRM = new Binding("Penalties");
             GridViewColumn RM = new GridViewColumn();
             RM.Header = "Мера наказания";
             RM.Width = 250;
@@ -64,6 +67,7 @@ namespace Курсовая_работа._БД.ViewDialogWindow
             myGridView.Columns.Add(Article);
             myGridView.Columns.Add(Part);
             myGridView.Columns.Add(Point);
+            myGridView.Columns.Add(Description);
             myGridView.Columns.Add(RM);
             return myGridView;
         }

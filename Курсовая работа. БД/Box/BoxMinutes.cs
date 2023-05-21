@@ -57,7 +57,7 @@ namespace Курсовая_работа._БД.Box
                                          item.IdInspector.ToString().Contains(listT[2]) &&
                                          item.IdVrc.ToString().Contains(listT[3]) &&
                                          item.CrimeScene.Contains(listT[4]) &&
-                                         (item.DateMinutes == date)
+                                         (item.DateMinutes >= date)
                                          select item).ToList();
             return list;
         }
