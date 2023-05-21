@@ -51,8 +51,8 @@
                     <Label Content="Нарушенные статьи"  Margin="0 15 0 10" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="130"/>
                     <StackPanel Orientation="Horizontal" Margin="0 0 35 0" HorizontalAlignment="Right" Height="27" Width="285">
                         <TextBox  x:Name="groupBoxArticles" HorizontalContentAlignment="Center" TextWrapping="Wrap" Text="" HorizontalAlignment="Center"
-                          Width="Auto" MinWidth="180" TextChanged="groupBoxsDataContextChanged" IsEnabled="False" Height="25" VerticalContentAlignment="Center"
-                              />
+                          Width="180" MaxWidth="180" TextChanged="groupBoxsDataContextChanged" IsEnabled="False" Height="25" VerticalContentAlignment="Center"
+                           HorizontalScrollBarVisibility="Auto"   />
                         <Button  x:Name="groupBtnDeleteChoosingArticles" Content="x" HorizontalAlignment="Center" Margin="10 0 7 0" Height="25" Width="40" Click="choosingBtn_DeleteArticles_click" />
                         <Button  x:Name="groupBtnChoosingArticles" Content="+" FontSize="15" VerticalContentAlignment="Top"  HorizontalAlignment="Center" Margin="5 0 7 0" Height="25" Width="40" Click="choosingBtn_IDArticles_click" />
                     </StackPanel>

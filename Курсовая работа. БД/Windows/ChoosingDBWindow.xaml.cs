@@ -3,6 +3,7 @@ using LibraryFor_CAR_DB.Entity;
 using LibraryFor_CAR_DB.Services;
 using Microsoft.EntityFrameworkCore.Metadata;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Globalization;
 using System.Linq;
 using System.Windows;
@@ -32,6 +33,7 @@ namespace Курсовая_работа._БД.Windows
         BoxInspectors _boxInspectors;
         BoxVRC _boxVrc;
         BoxCoAo _boxCoAo;
+        ChoosingDBWindow choosingDBWindow1 ;
 
         IViewDialogWindow viewDW;
 
@@ -125,8 +127,11 @@ namespace Курсовая_работа._БД.Windows
             }
             if (NameDB == "DriverLicense")
             {
+                this.DriverScreenBtn.Visibility = Visibility.Visible;
                 viewDW = new ViewLicenses();
                 createViewLicense();
+                Thickness thicknessDriverScreen = new Thickness(30, this.Height - this.selectionBtn.Height - 50, 0, 0);
+                this.DriverScreenBtn.Margin = thicknessDriverScreen;
             }
             if (NameDB == "Vehicle")
             {
@@ -155,6 +160,7 @@ namespace Курсовая_работа._БД.Windows
             this.backBtn.Margin = thicknessBack;
             Thickness thicknessChoose = new Thickness(this.Width - this.backBtn.Width - 50 - this.selectionBtn.Width, this.Height - this.selectionBtn.Height - 50, 0, 0);
             this.selectionBtn.Margin = thicknessChoose;
+           
             Style style = new Style(typeof(ListViewItem));
             style.Setters.Add(new Setter(HorizontalContentAlignmentProperty, HorizontalAlignment.Center));
             this.listViewData.ItemContainerStyle = style;
@@ -175,7 +181,7 @@ namespace Курсовая_работа._БД.Windows
         }
         private void createViewLicense()
         {
-            this.labelSeacrh.Content = "Поиск (VIN):";
+            this.labelSeacrh.Content = "Поиск (id водителя):";
             this.listViewData.DataContext = _boxLicenses.FilterLimitsID(limitValues);
             this.listViewData.ItemsSource = _boxLicenses.FilterLimitsID(limitValues);
         }
@@ -337,6 +343,19 @@ namespace Курсовая_работа._БД.Windows
                 this.listViewData.DataContext = _boxVrc.FilterNumber(this.searchBox.Text);
                 this.listViewData.ItemsSource = _boxVrc.FilterNumber(this.searchBox.Text);
             }
+        }
+
+        private void DriverBtn_Click(object sender, RoutedEventArgs e)
+        {
+            choosingDBWindow1 = new ChoosingDBWindow();
+            
+            choosingDBWindow1.Mode = -1;
+            choosingDBWindow1.NameDB = "Driver";
+            choosingDBWindow1.LimitValues = limitValues;
+            this.DriverScreenBtn.IsEnabled = true;
+            choosingDBWindow1.buildSkeleton();
+            choosingDBWindow1.ShowDialog();
+            choosingDBWindow1.Close();
         }
     }
 }

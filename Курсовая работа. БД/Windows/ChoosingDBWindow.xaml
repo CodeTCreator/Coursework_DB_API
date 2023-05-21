@@ -20,6 +20,8 @@
             <TextBox x:Name="searchBox" VerticalAlignment="Top" VerticalContentAlignment="Center" Margin="1,1,1,1" MinWidth="180" Height="25" TextChanged="searchBox_TextChanged"/>
         </StackPanel>
 
+        <Button Name="DriverScreenBtn" Content="Водители" HorizontalAlignment="Left" Margin="30,620,0,0" VerticalAlignment="Top" Width="70" Height="25"
+                IsEnabled="true" Click="DriverBtn_Click" Visibility="Hidden"/>
         <Button Name="selectionBtn" Content="Выбрать" HorizontalAlignment="Left" Margin="224,620,0,0" VerticalAlignment="Top" Width="70" Height="25"
                 IsEnabled="false" Click="selectionBtn_Click"/>
         <Button Name="backBtn" Content="Назад" HorizontalAlignment="Left" Margin="320,620,0,0" VerticalAlignment="Top" Width="70" Height="25"
