@@ -1,7 +1,9 @@
 ﻿using staffDB.Entity;
 using staffDB.Services;
 using System.ComponentModel.Design;
+using System.Threading.Tasks;
 using System.Windows;
+using Курсовая_работа._БД.Box;
 
 namespace Курсовая_работа._БД.Windows
 {
@@ -21,29 +23,31 @@ namespace Курсовая_работа._БД.Windows
             Staff staff = new Staff();
             staff.Fio = this.LoginTextBox.Text;
             staff.Password = this.PasswordBox.Password.ToString();
+           
+            var outer = Task.Factory.StartNew(() =>      // внешняя задача
+            {
+                BoxVRC boxVrc = new BoxVRC();
+                boxVrc.GetVRC();
+            });
 
-            MainWindow mainWindow = new MainWindow();
-            mainWindow.NameUser = staff.Fio;
-            mainWindow.Show();
-            this.Close();
-
-
-            //if (service_Staff.getStaff(staff) != null)
-            //{
-            //    MainWindow mainWindow = new MainWindow();
-            //    mainWindow.NameUser = staff.Fio;
-            //    mainWindow.Show();
-            //    this.Close();
-            //}
-            //else
-            //{
-            //    string messageBoxText = "Неправильный логин или пароль!";
-            //    string caption = "Ошибка!";
-            //    MessageBoxButton button = MessageBoxButton.OK;
-            //    MessageBoxImage icon = MessageBoxImage.Error;
-            //    MessageBoxResult messageBox;
-            //    messageBox = MessageBox.Show(messageBoxText, caption, button, icon, MessageBoxResult.Yes);
-            //}
+            if (service_Staff.getStaff(staff) != null)
+            {
+                outer.Wait();
+                MainWindow mainWindow = new MainWindow();
+                mainWindow.NameUser = staff.Fio;
+                mainWindow.Show();
+                this.Close();
+            }
+            else
+            {
+                outer.Wait();
+                string messageBoxText = "Неправильный логин или пароль!";
+                string caption = "Ошибка!";
+                MessageBoxButton button = MessageBoxButton.OK;
+                MessageBoxImage icon = MessageBoxImage.Error;
+                MessageBoxResult messageBox;
+                messageBox = MessageBox.Show(messageBoxText, caption, button, icon, MessageBoxResult.Yes);
+            }
 
         }
     }
