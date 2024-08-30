@@ -56,9 +56,9 @@ namespace Курсовая_работа._БД.Windows
             Search search = new Search();
             search.CarPlate = this.groupBoxCarPlate.Text;
             search.FullName = this.groupBoxFullName.Text;
-            search.Level = int.Parse(this.groupBoxLevel.SelectedValue.ToString().Substring(0, 1));
+            search.Level = this.groupBoxLevel.SelectedIndex + 1;
             search.Signs = this.groupBoxSigns.Text;
-            search.Color = this.groupBoxLevel.Text;
+            search.Color = this.groupBoxColor.Text;
             string? id = this.groupBoxID.Content.ToString();
             id = id?.Substring(4);
             if (id != null)

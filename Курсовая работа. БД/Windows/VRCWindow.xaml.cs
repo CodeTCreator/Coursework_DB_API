@@ -129,7 +129,6 @@ namespace Курсовая_работа._БД.Windows
             var button = sender as Button;
             if (button == null)
                 return;
-
             var item = button.DataContext as Vrc;
             _boxVRC.delete(item);
             getDB();
@@ -162,16 +161,7 @@ namespace Курсовая_работа._БД.Windows
 
         private void choosingBtn_IDdriver_click(object sender, RoutedEventArgs e)
         {
-            List<int> limitValues = new List<int>();
-            List<Vrc> vrc = _boxVRC.GetVRC();
-            if (vrc != null)
-            {
-                for (int i = 0; i < vrc.Count; i++)
-                {
-                    limitValues.Add((int)vrc[i].IdDriver);
-                }
-            }
-            int id = broker1.StartWork("Driver", limitValues, 1);
+            int id = broker1.StartWork("Driver", null, 1);
             if (id != -1)
             {
                 this.groupBoxIDDriver.Text = broker1.ResultId.ToString();

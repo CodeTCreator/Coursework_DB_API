@@ -25,13 +25,12 @@ namespace Курсовая_работа._БД.Windows
     {
         BoxMinutes _boxMinutes = new BoxMinutes();
         BoxArticles _boxArticles = new BoxArticles();
-        Broker _broker1,_broker2;
+        Broker _broker1;
         List<String> _articles = new List<string>();
         public MinuteWindow()
         {
             InitializeComponent();
             _broker1 = new Broker();
-            _broker2 = new Broker();
         }
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
@@ -283,8 +282,11 @@ namespace Курсовая_работа._БД.Windows
 
         private void choosingBtn_DeleteArticles_click(object sender, RoutedEventArgs e)
         {
-            _articles.RemoveAt(_articles.Count - 1);
-            this.groupBoxArticles.Text = String.Join("; ", _articles.ToArray());
+            if (_articles.Count > 0)
+            {
+                _articles.RemoveAt(_articles.Count - 1);
+                this.groupBoxArticles.Text = String.Join("; ", _articles.ToArray());
+            }
         }
     }
 }

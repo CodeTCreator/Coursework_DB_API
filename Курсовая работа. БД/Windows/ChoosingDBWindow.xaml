@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Курсовая_работа._БД"
         mc:Ignorable="d" WindowStartupLocation="Manual" Left="100" Top="100"
         Background="AliceBlue"  ResizeMode="NoResize"
-        Title="ChoosingDBWindow" Height="685" Width="400">
+        Title="Окно выбора" Height="685" Width="400">
     <Grid Margin="-1,1,1,-1">
 
         <Border BorderBrush="Black" Background="White" BorderThickness="1" Margin="30,0,30,570" Height="75">

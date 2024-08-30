@@ -158,15 +158,6 @@ namespace Курсовая_работа._БД.Windows
             }
         }
 
-        private void NSearchBoxChanged(object sender, TextChangedEventArgs e)
-        {
-        }
-
-
-        private void SearchBtn_click(object sender, RoutedEventArgs e)
-        {
-        }
-
         private void choosingBtn_IDdriver_click(object sender, RoutedEventArgs e)
         {
             List<int> limitValues = new List<int>();
